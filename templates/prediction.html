@@ -19,9 +19,10 @@
       </nav>
       <br />
       <div class="container">
-        <h1>Prediction: </h1>
+        <h1>{{model_name}} Prediction: {{prediction}}</h1>
         <br />
-        <img src="http://127.0.0.1:5000/uploads/672227-273-T-PEY_4x.jpg" alt="Image Prediction">
+        <p><u>File Name:</u> {{file_name}}</p>
+        <img src="{{file_name}}" alt="Image Prediction" width="800">
         <br />
     </div>
 
