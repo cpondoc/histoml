@@ -8,24 +8,103 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Prediction | PDMR Image Classifier</title>
+     <!-- Google Fonts-->
+     <link href="https://fonts.googleapis.com/css?family=Sen:400,700,800&display=swap" rel="stylesheet">
+
+    <!-- Title of Web Page -->
+    <title>Prediction | Histopathology Web Platform</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1:5000/assets/favicon.png">
+
+    <style>
+      body {
+        font-family: 'Sen', sans-serif;
+      }
+      .navbar, footer, #upload {
+        background-color: #BB133D !important;
+      }
+      #upload {
+        border-color: #BB133D !important;
+      }
+      #PDMRLink {
+        color: #BB133D !important;
+      }
+      .navbar-brand, span {
+        color: white !important;
+      }
+      #frontHead, .title, footer {
+        text-align: center;
+      }
+      footer {
+        margin-top: -40px !important;
+      }
+      .col-sm {
+        text-align: left !important;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">PDMR Image Classifier</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </nav>
+      <a class="navbar-brand" href="http://127.0.0.1:5000/">Histopathology Web Platform</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <div class="jumbotron" id="frontHead">
+      <h1><b>Prediction Results</b></h1>
+    <h4>Get the predicted diagnosis from our neural networks.</h4>
+    </div>
+    <div class="container">
+      <h1 class="title"><b>Classification Portal</b></h1>
+      <h4 class="title">Get your images scanned in and classified.</h4>
+      <br />
+        <div class="jumbotron">
+          <h2 class="title"><b>Prediction: {{prediction}}</b></h2>
+          <br />
+          <div class="row">
+            <div class="col-sm">
+              <p><b>File Name:</b> {{file_name}}</p>
+              <p><b>Model Name:</b> {{model_name}}</p>
+            </div>
+            <div class="col-sm">
+             <p><b>Confidence:</b> {{confidence}}</p>
+             <p><b>Method:</b> Downsizing</p>
+            </div>
+          </div>
+          <br />
+          <div class="text-center">
+            <img src="{{file_name}}" alt="Image Prediction" width="800">
+          </div>
+        </div>
+    </div>
+    <br />
+    <div class="jumbotron" id="frontHead">
+      <h1 class="title"><b>About</b></h1>
+      <h4 class="title">Learn more about our Histopathology Web Platform.</h4>
       <br />
       <div class="container">
-        <h1>{{model_name}} Prediction: {{prediction}}</h1>
-        <br />
-        <p><u>File Name:</u> {{file_name}}</p>
-        <img src="{{file_name}}" alt="Image Prediction" width="800">
-        <br />
+        <div class="row">
+          <div class="col-sm">
+            <p>We first decided to test how well deep learning neural networks could perform on Region of Interest (ROI) images.</p>
+            <p>We saw some great success, specifically with the binary classification task of sarcoma vs. carcinoma tumors on a small amount of images.</p>
+            <p>As a result, we continued our work into multiclass classification as well, looking at different subtypes of carcinoma.</p>
+          </div>
+          <div class="col-sm">
+            <p>This project attempts to leverage the power of deep learning neural networks into a web platform that can be used by pathologists for a quick screening.</p>
+            <p>The weights utilized for this project were initially trained from data from the National Cancer Institute's <a href="https://pdmr.cancer.gov/" id="PDMRLink">Patient Derived Models Repository</a>, but we hope to continue training our platform with more data in the near future.</p>
+          </div>
+        </div>
+      </div>
     </div>
-
+    <footer class="footer">
+      <div class="container">
+        <br />
+        <span class="title">Created and maintained by the Frederick National Lab for Cancer Research.</span>
+        <br />
+        <br />
+      </div>
+    </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
