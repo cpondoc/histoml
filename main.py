@@ -10,6 +10,7 @@ from models import *
 
 # Important Global Variables
 UPLOAD_FOLDER = 'uploads/'
+ASSET_FOLDER = 'assets/'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 root_dir = "http://127.0.0.1:5000/"
 model_nombre = "VGG-19"
@@ -17,6 +18,7 @@ model_nombre = "VGG-19"
 # Setting up the App
 app = Flask(__name__, static_url_path = '/uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['ASSET_FOLDER'] = ASSET_FOLDER
 
 # Defining Pre-Trained Models
 def unfreeze_layers(model_name, conv_base):
@@ -112,6 +114,10 @@ def upload_file():
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
+@app.route('/assets/<filename>')
+def asset_file(filename):
+    return send_from_directory(app.config['ASSET_FOLDER'],
+                               filename)
 
 @app.route('/predict/<model_name>/<filename>')
 def predict_file(filename, model_name):
@@ -144,4 +150,4 @@ def predict_file(filename, model_name):
     else:
         guess = "Sarcoma"
     print(result)
-    return render_template('prediction.html', model_name = model_name, file_name = file_name, prediction = guess)
+    return render_template('prediction.html', model_name = model_name, file_name = file_name, prediction = guess, confidence = result)
