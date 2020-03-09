@@ -8,40 +8,108 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Home | PDMR Image Classifier</title>
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Sen:400,700,800&display=swap" rel="stylesheet">
+
+    <!-- Title of Web Page -->
+    <title>Home | Histopathology Web Platform</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1:5000/assets/favicon.png">
+    
+    <style>
+      body {
+        font-family: 'Sen', sans-serif;
+      }
+      .navbar, footer, #upload {
+        background-color: #BB133D !important;
+      }
+      #upload {
+        border-color: #BB133D !important;
+      }
+      #PDMRLink {
+        color: #BB133D !important;
+      }
+      .navbar-brand, span {
+        color: white !important;
+      }
+      #frontHead, .title, footer {
+        text-align: center;
+      }
+      footer {
+        margin-top: -40px !important;
+      }
+      .col-sm {
+        text-align: left !important;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">PDMR Image Classifier</a>
+        <a class="navbar-brand" href="http://127.0.0.1:5000/">Histopathology Web Platform</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       </nav>
+      <div class="jumbotron" id="frontHead">
+        <h1><b>Histopathology Web Platform</b></h1>
+      <h4>Get your Region of Interest (ROI) images of sarcoma and carcinoma tumors classified using our machine learning pipelines.</h4>
+      </div>
       <br />
       <div class="container">
-        <h1>Upload Image</h1>
-        <br />
-        <h3>Upload an image of your H&E stained ROI and we will classify it as either sarcoma or carcinoma.</h3>
-        <p><em>Accepted File Extensions: .jpg, .png, .jpeg, .gif</em></p>
-        <br />
-        <form method=post enctype=multipart/form-data>
-            <input type=file name=file>
-            <input class="btn btn-primary" type=submit value=Upload>
-            <div class="form-group">
-              <br />
-              <label for="exampleFormControlSelect1">Pre-Trained Model</label>
-              <select class="form-control" id="model_name" name="model_name">
-                <option>VGG-16</option>
-                <option>Xception</option>
-                <option>InceptionV3</option>
-                <option>VGG-19</option>
-                <option>DenseNet</option>
-              </select>
-            </div>
-        </form>
+        <h1 class="title"><b>Classification Portal</b></h1>
+        <h4 class="title">Get your images scanned in and classified.</h4>
+        <br/>
+        <div class="jumbotron">
+          <h2><b>Upload Image</b></h2>
+          <br />
+          <h4>Upload an image of your H&E stained ROI and we will classify it as either sarcoma or carcinoma.</h4>
+          <p><em>Accepted File Extensions: .jpg, .png, .jpeg, .gif</em></p>
+          <br />
+          <form method=post enctype=multipart/form-data>
+              <input type=file name=file>
+              <input class="btn btn-primary" type=submit id="upload" value=Upload>
+              <div class="form-group">
+                <br />
+                <label for="exampleFormControlSelect1">Pre-Trained Model</label>
+                <select class="form-control" id="model_name" name="model_name">
+                  <option>VGG-16</option>
+                  <option>Xception</option>
+                  <option>InceptionV3</option>
+                  <option>VGG-19</option>
+                  <option>DenseNet</option>
+                </select>
+              </div>
+          </form>
+        </div>
         <br />
     </div>
-
+    <div class="jumbotron" id="frontHead">
+      <h1 class="title"><b>About</b></h1>
+      <h4 class="title">Learn more about our Histopathology Web Platform.</h4>
+      <br />
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <p>We first decided to test how well deep learning neural networks could perform on Region of Interest (ROI) images.</p>
+            <p>We saw some great success, specifically with the binary classification task of sarcoma vs. carcinoma tumors on a small amount of images.</p>
+            <p>As a result, we continued our work into multiclass classification as well, looking at different subtypes of carcinoma.</p>
+          </div>
+          <div class="col-sm">
+            <p>This project attempts to leverage the power of deep learning neural networks into a web platform that can be used by pathologists for a quick screening.</p>
+            <p>The weights utilized for this project were initially trained from data from the National Cancer Institute's <a href="https://pdmr.cancer.gov/" id="PDMRLink">Patient Derived Models Repository</a>, but we hope to continue training our platform with more data in the near future.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <br />
+        <span class="title">Created and maintained by the Frederick National Lab for Cancer Research.</span>
+        <br />
+        <br />
+      </div>
+    </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
