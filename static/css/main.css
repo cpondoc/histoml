@@ -1,0 +1,24 @@
+body {
+    font-family: 'Sen', sans-serif;
+  }
+  .navbar, footer, #upload {
+    background-color: #BB133D !important;
+  }
+  #upload {
+    border-color: #BB133D !important;
+  }
+  #PDMRLink {
+    color: #BB133D !important;
+  }
+  .navbar-brand, span, .nav-link {
+    color: white !important;
+  }
+  #frontHead, .title, footer {
+    text-align: center;
+  }
+  footer {
+    margin-top: -40px !important;
+  }
+  .col-sm {
+    text-align: left !important;
+  }
