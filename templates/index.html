@@ -11,12 +11,16 @@
     <!-- Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Sen:400,700,800&display=swap" rel="stylesheet">
 
+    <!-- D3.js Visualization -->
+    <script type="text/javascript" src="https://mbostock.github.com/d3/d3.min.js"></script>
+    <script type="text/javascript" src="https://mbostock.github.com/d3/d3.time.min.js"></script>
+
     <!-- Title of Web Page -->
     <title>Home | Histopathology Web Platform</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="http://127.0.0.1:5000/assets/favicon.png">
-    
+
     <style>
       body {
         font-family: 'Sen', sans-serif;
@@ -30,7 +34,7 @@
       #PDMRLink {
         color: #BB133D !important;
       }
-      .navbar-brand, span {
+      .navbar-brand, span, .nav-link {
         color: white !important;
       }
       #frontHead, .title, footer {
@@ -46,10 +50,11 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="http://127.0.0.1:5000/">Histopathology Web Platform</a>
+      <a class="navbar-brand" href="http://127.0.0.1:5000/"><img src="http://127.0.0.1:5000/assets/NCILogo.png" height="40"/> Histopathology Web Platform</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        </div>
       </nav>
       <div class="jumbotron" id="frontHead">
         <h1><b>Histopathology Web Platform</b></h1>

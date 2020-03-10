@@ -114,6 +114,7 @@ def upload_file():
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
+
 @app.route('/assets/<filename>')
 def asset_file(filename):
     return send_from_directory(app.config['ASSET_FOLDER'],
@@ -147,7 +148,16 @@ def predict_file(filename, model_name):
     # Checking what the network guesses
     if (result[0] <= .5):
         guess = "Carcinoma"
+        if (result[0] < .25):
+            confidence_level = "Strong"
+        else:
+            confidence_level = "Weak"
     else:
         guess = "Sarcoma"
+        if (result[0] > .75):
+            confidence_level = "Strong"
+        else:
+            confidence_level = "Weak"
+
     print(result)
-    return render_template('prediction.html', model_name = model_name, file_name = file_name, prediction = guess, confidence = result)
+    return render_template('prediction.html', model_name = model_name, file_name = file_name, prediction = guess, confidence = result, level = confidence_level)
